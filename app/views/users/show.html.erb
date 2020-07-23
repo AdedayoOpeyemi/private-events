@@ -10,8 +10,10 @@
   <%= @user.name %>
 </p>
 
-<%= link_to 'Home', root_path %>
+<%= link_to 'Home', root_path %> |
+<%= link_to 'My Events', events_path %> |
+<%= link_to 'All Events', events_all_path %> |
 <% if @user == logged_user %>
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Logout', logout_path, method: :post %>
 <% end %>
