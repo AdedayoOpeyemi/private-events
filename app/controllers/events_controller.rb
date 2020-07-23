@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   before_action :require_login, except: %i[all show]
 
   def all
-    @events = Event.includes('creator').all
+    @upcoming_events = Event.upcoming.includes('creator', 'attendees')
+    @past_events = Event.past.includes('creator', 'attendees')
     render 'events/index'
   end
 
@@ -23,7 +24,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = logged_user.events
+    @upcoming_events = logged_user.events.upcoming.includes('attendees')
+    @past_events = logged_user.events.past.includes('attendees')
   end
 
   # GET /events/1
@@ -46,7 +48,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path
     else
-      redirect_to :new
+      redirect_to event_path(@event)
     end
   end
 
@@ -83,6 +85,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:description)
+    params.require(:event).permit(:description, :title, :date)
   end
 end

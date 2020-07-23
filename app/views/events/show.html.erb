@@ -1,13 +1,42 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+  <% if check && logged_user.attending?(@event) %>
+    <%= link_to 'Unattend', unattend_path(@event), method: :post %>
+  <% else %>
+    <%= link_to 'Attend', attend_path(@event), method: :post %>
+  <% end %>
+</p>
+
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
 
 <p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
   <strong>Creator:</strong>
   <%= @event.creator.name %>
 </p>
+
+<table>
+  <tr>
+    <th>Attendees (<%= @event.attendees.count %>) </th>
+    <th>Actions</th>
+  </tr>
+  <% @event.attendees.each do |attendee| %>
+    <tr>
+      <td><%= attendee.name%></td>
+      <td><%= link_to 'Show', user_path(attendee) %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Home', root_path %>
