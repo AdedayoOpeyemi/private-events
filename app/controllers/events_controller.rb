@@ -1,11 +1,23 @@
 class EventsController < ApplicationController
   include SessionsHelper
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy attend unattend]
   before_action :require_login, except: %i[all show]
 
   def all
     @events = Event.includes('creator').all
     render 'events/index'
+  end
+
+  def attend
+    @event.attendees << logged_user unless @event.attendees.exists?(logged_user.id)
+
+    redirect_to events_all_path
+  end
+
+  def unattend
+    @event.attendees.delete(logged_user)
+
+    redirect_to events_all_path
   end
 
   # GET /events

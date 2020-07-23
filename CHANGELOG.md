@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Create events.
 - View user events.
 - View all events.
+- Attend/Unattend events.

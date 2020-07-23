@@ -17,6 +17,11 @@
         <td><%= event.description %></td>
         <td><%= event.creator.name %></td>
         <td><%= link_to 'Show', event %></td>
+        <% if check && logged_user.attending?(event) %>
+          <td><%= link_to 'Unattend', unattend_path(event), method: :post %></td>
+        <% else %>
+          <td><%= link_to 'Attend', attend_path(event), method: :post %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
