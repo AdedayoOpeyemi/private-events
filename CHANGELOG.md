@@ -19,3 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Used helpers for logic.
 - Testing models validations and associations.
 - Testing events management (creation, attending, and unattending).
+- Testing authentication (Login, and Logout).
