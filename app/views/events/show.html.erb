@@ -4,11 +4,7 @@
 <p>
   <strong>Title:</strong>
   <%= @event.title %>
-  <% if check && logged_user.attending?(@event) %>
-    <%= link_to 'Unattend', unattend_path(@event), method: :post %>
-  <% else %>
-    <%= link_to 'Attend', attend_path(@event), method: :post %>
-  <% end %>
+  <td><%= link_to switch_status(@event), attend_unattend(@event), method: :post %></td>
 </p>
 
 <p>

@@ -16,3 +16,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Attend/Unattend events.
 - Separate attended from unattended events.
 - Separate upcoming from past events.
+- Used helpers for logic
