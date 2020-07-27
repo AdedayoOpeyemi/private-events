@@ -2,7 +2,9 @@
 
 ## TODO: Update this later.
 
-This project involved builing a Rails App where your members can post contents. Only signed in members can see who the author of a post is but, outside, they can only see the story and wonder who wrote it.
+This project involved builing a Rails App where the public can see events.However, only signed in members can see the details of the events and can click on the attend button in order to add it to their list of events. Only signed in users can also create new events.
+
+The user page shows a list of all events the user has chosen to attend. The list is divided into 2, past events and upcoming events.
 
 
 ## Built With
@@ -16,8 +18,8 @@ To get a local copy up and running follow these simple example steps:
 
 ### Setup
 
-- Clone the repo `git clone https://github.com/aldemeery/members-only.git`
-- `cd` into the cloned repo `cd members-only`
+- Clone the repo `git clone https://github.com/AdedayoOpeyemi/private-events`
+- `cd` into the cloned repo `cd private-events`
 - Install dependencies `bundle install`
 - Migrate the database `rails db:migrate`
 - Run the rails console `rails console`
