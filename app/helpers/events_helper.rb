@@ -18,4 +18,12 @@ module EventsHelper
       'Attend'
     end
   end
+
+  def user_home
+    link_to 'Home', root_path if check
+  end
+
+  def user_new_event
+    link_to 'New Event', new_event_path if check
+  end
 end

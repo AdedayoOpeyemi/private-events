@@ -21,3 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Testing events management (creation, attending, and unattending).
 - Testing authentication (Login, and Logout).
 - Updated Readme file.
+- Moved logic test for signed in user out of view files
