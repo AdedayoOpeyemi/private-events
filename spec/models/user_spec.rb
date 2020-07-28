@@ -14,14 +14,8 @@ RSpec.describe User, type: :model do
   end
 
   context 'Association tests' do
-    it 'has many events' do
-      assc = User.reflect_on_association(:events)
-      expect(assc.macro).to eq :has_many
-    end
+    it { should have_many(:events).class_name('Event') }
 
-    it 'has and belongs to many attended events' do
-      assc = User.reflect_on_association(:attended_events)
-      expect(assc.macro).to eq :has_and_belongs_to_many
-    end
+    it { should have_and_belong_to_many(:attended_events).class_name('Event') }
   end
 end

@@ -15,14 +15,8 @@ RSpec.describe Event, type: :model do
   end
 
   context 'Association tests' do
-    it 'belongs to creator' do
-      assc = Event.reflect_on_association(:creator)
-      expect(assc.macro).to eq :belongs_to
-    end
+    it { should belong_to(:creator).class_name('User') }
 
-    it 'has and belongs to many attendees' do
-      assc = Event.reflect_on_association(:attendees)
-      expect(assc.macro).to eq :has_and_belongs_to_many
-    end
+    it { should have_and_belong_to_many(:attendees).class_name('User') }
   end
 end
