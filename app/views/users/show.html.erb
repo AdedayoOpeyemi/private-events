@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<hr />
+
+<h3>Upcoming Events (Attending)</h3>
+<table>
+  <tr>
+    <th>Events: <%= @user.upcoming_events.count %> </th>
+    <th>Actions</th>
+  </tr>
+  <% @user.upcoming_events.each do |event| %>
+    <tr>
+      <td><%= event.title%></td>
+      <td>
+        <%= link_to 'Show', event_path(event) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<hr />
+
+<h3>Past Events (Attended)</h3>
+<table>
+  <tr>
+    <th>Events: <%= @user.past_events.count %> </th>
+    <th>Actions</th>
+  </tr>
+  <% @user.past_events.each do |event| %>
+    <tr>
+      <td><%= event.title%></td>
+      <td>
+        <%= link_to 'Show', event_path(event) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<hr />
+
+
+<%= link_to 'Home', root_path %> |
+<%= link_to 'My Events', events_path %> |
+<%= link_to 'All Events', events_all_path %> |
+<%= signed_in_edit(@user) %>
+<%= signed_in_logout(@user) %>

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+  <td><%= link_to switch_status(@event), attend_unattend(@event), method: :post %></td>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @event.creator.name %>
+</p>
+
+<table>
+  <tr>
+    <th>Attendees (<%= @event.attendees.count %>) </th>
+    <th>Actions</th>
+  </tr>
+  <% @event.attendees.each do |attendee| %>
+    <tr>
+      <td><%= attendee.name%></td>
+      <td><%= link_to 'Show', user_path(attendee) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Home', root_path %>
